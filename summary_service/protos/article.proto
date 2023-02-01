@@ -1,0 +1,166 @@
+syntax = "proto3";
+
+package article;
+
+service ArticleService {
+    rpc CreateArticle(CreateArticleRequest) returns (CreateArticleResponse) {}
+    rpc FindAllArticle(FindAllArticleRequest) returns (FindAllArticleResponse) {}
+    rpc FindOneArticle(FindOneArticleRequest) returns (FindOneArticleResponse) {}
+    rpc FindArticleByName(FindArticleByNameRequest) returns (FindArticleByNameResponse) {}
+    rpc UpdateArticle(UpdateArticleRequest) returns (UpdateArticleResponse) {}
+    rpc DeleteArticle(DeleteArticleRequest) returns (DeleteArticleResponse) {}
+
+    rpc CreateSummary(CreateSummaryRequest) returns (CreateSummaryResponse) {}
+    rpc FindAllSummary(FindAllSummaryRequest) returns (FindAllSummaryResponse) {}
+    rpc FindOneSummary(FindOneSummaryRequest) returns (FindOneSummaryResponse) {}
+    rpc UpdateSummary(UpdateSummaryRequest) returns (UpdateSummaryResponse) {}
+    rpc DeleteSummary(DeleteSummaryRequest) returns (DeleteSummaryResponse) {}
+}
+
+message Article {
+    int64 id = 1;
+    string name = 2;
+    string nameFile = 3;
+    string note = 4;
+    string dateCreate = 5;
+    int64 userId = 6;
+}
+
+message Summary {
+    int64 id = 1;
+    string name = 2;
+    string nameFile = 3;
+    string type = 4;
+    string note = 5;
+    int64 articleId = 6;
+}
+
+//Room
+message CreateArticleRequest {
+    string name = 1;
+    string nameFile = 2;
+    string note = 3;
+    string dateCreate = 4;
+    int64 userId = 5;
+}
+
+message CreateArticleResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 4;
+}
+
+message FindAllArticleRequest {
+    int64 userId = 1;
+}
+
+message FindAllArticleResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated Article data = 3;
+}
+
+message FindOneArticleRequest {
+    int64 id = 1;
+    int64 userId = 2;
+}
+
+message FindOneArticleResponse {
+    int64 status = 1;
+    string error = 2;
+    Article data = 3;
+}
+
+message FindArticleByNameRequest {
+    string name = 1;
+    int64 userId = 2;
+}
+
+message FindArticleByNameResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated Article data = 3;
+}
+
+message UpdateArticleRequest {
+    int64 id = 1;
+    string name = 2;
+    string nameFile = 3;
+    string note = 4;
+    string dateCreate = 5;
+    int64 userId = 6;
+}
+
+message UpdateArticleResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 3;
+}
+
+message DeleteArticleRequest {
+    int64 id = 1;
+}
+
+message DeleteArticleResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message CreateSummaryRequest {
+    string name = 1;
+    string nameFile = 2;
+    string type = 3;
+    string note = 4;
+    int64 articleId = 5;
+}
+
+message CreateSummaryResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 3;
+}
+
+message FindAllSummaryRequest {
+    int64 articleId = 1;
+}
+
+message FindAllSummaryResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated Summary data = 3;
+}
+
+message FindOneSummaryRequest {
+    string name = 1;
+    int64 articleId = 2;
+}
+
+message FindOneSummaryResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated Summary data = 3;
+}
+
+message UpdateSummaryRequest {
+    int64 id = 1;
+    string name = 2;
+    string nameFile = 3;
+    string type = 4;
+    string note = 5;
+    int64 articleId = 6;
+}
+
+message UpdateSummaryResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 3;
+}
+
+message DeleteSummaryRequest {
+    int64 id = 1;
+}
+
+message DeleteSummaryResponse {
+    int64 status = 1;
+    string error = 2;
+}

@@ -1,0 +1,28 @@
+{{ template "header.html" .}}
+
+<h1>Обнволение статьи для сокращения</h1>
+
+<div class="panel panel-default col-sm-12">
+  <div class="panel-body">
+    {{ if .ErrorTitle}}
+    <p class="bg-danger">
+      {{.ErrorTitle}}: {{.ErrorMessage}}
+    </p>
+    {{end}}
+    <form class="form" action="/api/article/update/{{.Id}}" method="POST">
+      <div class="form-group">
+        <label for="title">Название</label>
+        <input type="text" class="form-control" id="title" name="name" placeholder="Название">
+      </div>
+
+      <div class="form-group">
+        <label for="title">Примечание</label>
+        <input type="text" class="form-control" id="note" name="note" placeholder="Примечание">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Изменить</button>
+    </form>  
+  </div>
+</div>  
+
+{{ template "footer.html" .}}

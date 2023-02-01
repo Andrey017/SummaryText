@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package file;
+
+option go_package = "./pkg/pb";
+
+service FileService {
+    rpc UploadFile(stream UploadFileRequest) returns (UploadFileResponse) {}
+    rpc DownloadFile(DownloadFileRequest) returns (stream DownloadFileResponse) {}
+    rpc DownloadFileTXT(DownloadFileTXTRequest) returns (stream DownloadFileTXTResponse) {}
+}
+
+message FileInfo {
+    int64 id = 1;
+    string fileName = 2;
+    string fileType = 3;
+}
+
+message UploadFileRequest {
+    FileInfo info = 1;
+    bytes fileData = 2;
+}
+
+message UploadFileResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message DownloadFileRequest {
+    int64 id = 1;
+    string fileName = 2;
+}
+
+message DownloadFileResponse {
+    bytes fileData = 1;
+}
+
+message DownloadFileTXTRequest {
+    int64 id = 1;
+    string fileName = 2;
+}
+
+message DownloadFileTXTResponse {
+    bytes fileData = 1;
+}

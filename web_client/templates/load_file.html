@@ -1,0 +1,32 @@
+{{ template "header.html" .}}
+
+<h1>Добавление файла статьи для сокращения</h1>
+
+<div class="panel panel-default col-sm-12">
+  <div class="panel-body">
+    {{ if .ErrorTitle}}
+    <p class="bg-danger">
+      {{.ErrorTitle}}: {{.ErrorMessage}}
+    </p>
+    {{end}}
+    <form class="form" action="http://192.168.17.247:9000/upload/load/{{.Id}}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <input id="main_slider" required name="file" type="file" data-browse-on-zone-click="true" style="margin-top: 10px;">
+       </div>
+       <input type="submit" class="btn btn-primary" value="Отправить" style="margin-top: 10px;">
+    </form>
+  </div>
+</div>  
+
+<script>
+$(function() {
+  $('input[type=file]').change(function(){
+    var t = $(this).val();
+    var labelText = 'File : ' + t.substr(12, t.length);
+    $(this).prev('label').text(labelText);
+  })
+});
+</script>
+
+    
+{{ template "footer.html" .}}

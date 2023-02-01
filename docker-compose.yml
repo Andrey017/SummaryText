@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  api_gateway:
+    build: api-gateway/
+
+    command: ./main   
+
+    ports:
+      - 9000:9000
+  article_service:
+    build: article_service/
+
+    command: ./main
+
+    ports:
+      - 9002:9002
+  auth_service:
+    build: auth_service/
+
+    command: ./main
+
+    ports:
+      - 9001:9001
+  file_service:
+    build: file_service/
+
+    command: ./main
+
+    ports:
+      - 9003:9003
+  summary_service:
+    build: summary_service/
+
+    command: python ./summary_text.py
+
+    ports:
+      - 9004:9004

@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package summary;
+
+option go_package = "./pkg/summary/pb";
+
+service SummaryTextService {
+    rpc SummaryTextRank(SummaryTextRequest) returns (SummaryTextResponse) {}
+    rpc SummaryLSA(SummaryLSARequest) returns (SummaryLSAResponse) {}
+    rpc SummaryT5(SummaryT5Request) returns (SummaryT5Response) {}
+}
+
+message Summary {
+    string name = 1;
+    string nameFile = 2;
+    string type = 3;
+    string note = 4;
+    int64 articleId = 5;
+    int64 countWord = 6;
+    int64 countSentense = 7;
+    int64 minCountSentense = 8;
+    int64 maxCountSentense = 9;
+}
+
+message SummaryTextRequest {
+    Summary info = 1;
+}
+
+message SummaryTextResponse {
+    int64 id = 1;
+}
+
+message SummaryLSARequest {
+    Summary info = 1;
+}
+
+message SummaryLSAResponse {
+    int64 id = 1;
+}
+
+message SummaryT5Request {
+    Summary info = 1;
+}
+
+message SummaryT5Response {
+    int64 id = 1;
+}
