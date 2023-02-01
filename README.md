@@ -13,22 +13,22 @@
 
 ### 2. Список сгенерированных сокращений
 <p align="center">
-  <img src="screenshots/article.png" />
+  <img src="screenshots/article.PNG" />
 </p>
 
 ### 3. Добавление пользовательского документа для сокращения
 <p align="center">
-  <img src="screenshots/article1.png" />
+  <img src="screenshots/article1.PNG" />
 </p>
 
 ### 4. Загруженный пользовательский документ и меню для предварительного просмотра
 <p align="center">
-  <img src="screenshots/article2.png" />
+  <img src="screenshots/article2.PNG" />
 </p>
 
 ### 5. Сгенерированные аннотация и резюме
 <p align="center">
-  <img src="screenshots/article3.png" />
+  <img src="screenshots/article3.PNG" />
 </p>
 
 ## Стек используемых технологий
