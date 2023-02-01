@@ -8,7 +8,7 @@
 
 ### 1. Создание, редактирование ссылки и переход по ссылке
 <p align="center">
-  <img src="screenshots/demo.gif" />
+  <img src="screenshots/demo2.gif" />
 </p>
 
 ### 2. Список сгенерированных сокращений
